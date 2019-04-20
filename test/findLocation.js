@@ -8,7 +8,7 @@ if (process.env.NOCK_OFF !== 'true') {
     options.minInterval = 0; // for testing, when no real HTTP requests are being made
 }
 else {
-    // nock.recorder.rec();
+    nock.recorder.rec();
 }
 
 describe(

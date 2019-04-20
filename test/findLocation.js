@@ -35,6 +35,8 @@ describe(
                                 expect(wh.zip()).to.equal('20500');
                                 expect(wh.fullAddress()).to.equal('1600 PENNSYLVANIA AVENUE NW');
                                 expect(wh.imageUrl()).to.be.null;
+                                expect(wh.latitude().toFixed(6)).to.equal('38.897668');
+                                expect(wh.longitude().toFixed(6)).to.equal('-77.036545');
                                 expect(wh.confidenceLevel()).to.equal(70);
                                 done();
                             });

@@ -50,4 +50,28 @@ nock('https://citizenatlas.dc.gov:443', {"encodedQueryParams":true})
           'Connection',
           'close' ]);
 
+nock('https://citizenatlas.dc.gov:443', {"encodedQueryParams":true})
+    .get('/newwebservices/locationverifier.asmx/findLocation2')
+    .query({"str":"1600","f":"json"})
+    .reply(200, {"returnCodes":"1012","details":null,"returnDataset":{},"returnBlkAddrDataset":null,"returnCDDataSet":null,"UNIT":null,"UNITNUMBER":null,"sourceOperation":"DC AID","processTime":null}, [ 'Cache-Control',
+          'no-cache,no-cache,no-Store',
+          'Pragma',
+          'no-cache,no-cache',
+          'Transfer-Encoding',
+          'chunked',
+          'Content-Type',
+          'application/json; charset=utf-8',
+          'Expires',
+          '-1,-1',
+          'Server',
+          'Microsoft-IIS/8.5',
+          'X-AspNet-Version',
+          '4.0.30319',
+          'X-Powered-By',
+          'ASP.NET',
+          'Date',
+          'Sat, 20 Apr 2019 01:17:33 GMT',
+          'Connection',
+          'close' ]);
+
 module.exports = nock;

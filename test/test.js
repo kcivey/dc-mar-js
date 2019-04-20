@@ -7,7 +7,9 @@ if (process.env.NOCK_OFF !== 'true') {
     nock.disableNetConnect();
     options.minInterval = 0; // for testing, when no real HTTP requests are being made
 }
-// nock.recorder.rec();
+else {
+    // nock.recorder.rec();
+}
 
 describe(
     'findLocation',
@@ -27,16 +29,33 @@ describe(
                                 expect(wh).is.instanceof(Address);
                                 expect(wh.quadrant()).to.equal('NW');
                                 expect(wh.ward()).to.equal(2);
+                                expect(wh.anc()).to.equal('2A');
+                                expect(wh.smd()).to.equal('2A01');
+                                expect(wh.precinct()).to.equal(2);
+                                expect(wh.zip()).to.equal('20500');
                                 expect(wh.fullAddress()).to.equal('1600 PENNSYLVANIA AVENUE NW');
+                                expect(wh.imageUrl()).to.be.null;
+                                expect(wh.confidenceLevel()).to.equal(70);
                                 done();
                             });
                     }
                 );
                 it(
-                    'No results',
+                    'No results (null dataset)',
                     function (done) {
                         const client = new Client(options);
                         client.findLocation('****')
+                            .then(function (addresses) {
+                                expect(addresses).has.length(0);
+                                done();
+                            });
+                    }
+                );
+                it(
+                    'No results (empty dataset)',
+                    function (done) {
+                        const client = new Client(options);
+                        client.findLocation('1600')
                             .then(function (addresses) {
                                 expect(addresses).has.length(0);
                                 done();

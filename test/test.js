@@ -2,6 +2,8 @@ const nock = require('./nock');
 const expect = require('chai').expect;
 const {Client, Address} = require('..');
 
+//nock.recorder.rec();
+
 describe(
     'findLocation',
     function () {
@@ -20,6 +22,17 @@ describe(
                                 expect(wh.quadrant()).to.equal('NW');
                                 expect(wh.ward()).to.equal(2);
                                 expect(wh.fullAddress()).to.equal('1600 PENNSYLVANIA AVENUE NW');
+                                done();
+                            });
+                    }
+                );
+                it(
+                    'No results',
+                    function (done) {
+                        const client = new Client();
+                        client.findLocation('****')
+                            .then(function (addresses) {
+                                expect(addresses).has.length(0);
                                 done();
                             });
                     }

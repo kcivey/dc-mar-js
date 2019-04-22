@@ -33,3 +33,57 @@ client.findLocation('1600 Penn')
   -77.03654468 ]
 */
 ```
+
+## Exports
+
+### Client
+
+This is the main class you'll want to use.
+
+#### constructor
+
+    const client = new Client(options);
+
+The optional `options` argument is an object with the following properties, which
+you probably won't want to change from the defaults unless you have unusual needs:
+
+* `request`: a function that accepts a URL or options object and returns a promise that
+resolves to an object derived from the JSON in the body of the HTTP response.
+It defaults to the function exported by
+[`request-promise-native`](https://www.npmjs.com/package/request-promise-native`).
+
+* `baseUrl`: a string to be used as the base URL for the Master Address Repository API.
+It defaults to `https://citizenatlas.dc.gov/newwebservices/locationverifier.asmx/`.
+
+* `minInterval`: an integer setting the minimum interval between API requests in
+milliseconds.
+It defaults to 3000, which is the interval DC OCTO asks users to adhere to.
+Use a lower value only if you're doing testing in which you're mocking the HTTP 
+requests so that you're not actually hitting the server.
+
+#### request(operation, parameters)
+
+A utility method used by the methods for 
+[the various API operations](http://citizenatlas.dc.gov/newwebservices/locationverifier.asmx).
+The `operation` argument is a string, the name of the API operation.
+The `parameters` argument is an object, the parameters to be passed to the operation
+endpoint.
+
+You won't need this method unless you want to call a method that doesn't (yet) have its
+own method defined. The operations called are always the REST versions, which end in
+`2` (meaning that `2` is appended to the operation name if it's not already there).
+The `request` method returns a promise returned by the `request` function as defined
+in the options from the constructor.
+
+#### findLocation(searchString, raw = false)
+
+When given a string representing an address in Washington, DC, returns an array of
+`Address` objects corresponding to that string. If the optional `raw` argument is
+true, it instead returns the entire object derived from the JSON response, which 
+may be useful for debugging.
+
+#### findLocationBatch(searchStrings, raw = false)
+
+When given an array of strings representing addresses in Washington, DC, returns an 
+array of arrays of `Address` objects corresponding to those strings, in order.
+Like `findLocation`, it has an optional `raw` argument.

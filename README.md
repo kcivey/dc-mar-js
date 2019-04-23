@@ -98,7 +98,7 @@ won't need to use the constructor directly, but it is exported in case it's need
 #### constructor
 
 ```js
-const Address = new Address(properties);
+const address = new Address(properties);
 ```
 
 The `properties` argument (required) is an object containing the properties described in the

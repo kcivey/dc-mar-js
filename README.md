@@ -42,7 +42,9 @@ This is the main class you'll want to use.
 
 #### constructor
 
-    const client = new Client(options);
+```js
+const client = new Client(options);
+```
 
 The optional `options` argument is an object with the following properties, which
 you probably won't want to change from the defaults unless you have unusual needs:
@@ -68,7 +70,6 @@ A utility method used by the methods for
 The `operation` argument is a string, the name of the API operation.
 The `parameters` argument is an object, the parameters to be passed to the operation
 endpoint.
-
 You won't need this method unless you want to call a method that doesn't (yet) have its
 own method defined. The operations called are always the REST versions, which end in
 `2` (meaning that `2` is appended to the operation name if it's not already there).
@@ -87,3 +88,74 @@ may be useful for debugging.
 When given an array of strings representing addresses in Washington, DC, returns an 
 array of arrays of `Address` objects corresponding to those strings, in order.
 Like `findLocation`, it has an optional `raw` argument.
+
+### Address
+
+This is the class of the objects returned by `findLocation` and `findLocationBatch`. You probably
+won't need to use the constructor directly, but it is exported in case it's needed
+(for `instanceof` tests, for example).
+
+#### constructor
+
+```js
+const Address = new Address(properties);
+```
+
+The `properties` argument (required) is an object containing the properties described in the
+[MAR data dictionary](https://octo.dc.gov/sites/default/files/dc/sites/octo/publication/attachments/DCGIS_MarDataDictionary_0.pdf),
+plus a `ConfidenceLevel` property.
+
+#### properties
+
+An object containing the properties provided in the constructor.
+These values should mostly be accessed through other methods like `.ward()` or through `.get()`
+if no specific method exists.
+
+#### anc()
+
+Method to get the advisory neighborhood commission, or ANC (string).
+
+#### confidenceLevel()
+
+Method to get the confidenceLevel (integer).
+
+#### fullAddress()
+
+Method to get the fullAddress (string).
+
+#### get(propertyName)
+
+Method to get the value of a property. The `propertyName` argument is a string. The return value is
+a string or number, depending on the property, or null.
+
+#### imageUrl()
+
+Method to get the image URL (string).
+
+#### latitude()
+
+Method to get the latitude (float).
+
+#### longitude()
+
+Method to get the longitude (float).
+
+#### precinct()
+
+Method to get the voting precinct (integer).
+
+#### quadrant()
+
+Method to get the quadrant (string).
+
+#### smd()
+
+Method to get the single member district within the ANC (string).
+
+#### ward()
+
+Method to get the ward (integer).
+
+#### zip()
+
+Method to get the ZIP code (string).

@@ -78,15 +78,15 @@ in the options from the constructor.
 
 #### findLocation(searchString, raw = false)
 
-When given a string representing an address in Washington, DC, returns an array of
-`Address` objects corresponding to that string. If the optional `raw` argument is
-true, it instead returns the entire object derived from the JSON response, which 
+When given a string representing an address in Washington, DC, returns a promise that resolves
+to an array of `Address` objects corresponding to that string. If the optional `raw` argument is
+true, the promise instead resolves to the entire object derived from the JSON response, which
 may be useful for debugging.
 
 #### findLocationBatch(searchStrings, raw = false)
 
-When given an array of strings representing addresses in Washington, DC, returns an 
-array of arrays of `Address` objects corresponding to those strings, in order.
+When given an array of strings representing addresses in Washington, DC, returns a promise
+that resolves to an array of arrays of `Address` objects corresponding to those strings, in order.
 Like `findLocation`, it has an optional `raw` argument.
 
 ### Address

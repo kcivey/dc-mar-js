@@ -1,14 +1,10 @@
-const nock = require('./nock');
+require('./nock');
 const expect = require('chai').expect;
 const {Client, Address} = require('..');
 const options = {};
 
 if (process.env.NOCK_OFF !== 'true') {
-    nock.disableNetConnect();
     options.minInterval = 0; // for testing, when no real HTTP requests are being made
-}
-else {
-    nock.recorder.rec();
 }
 
 describe(
@@ -38,6 +34,8 @@ describe(
                                 expect(wh.latitude().toFixed(6)).to.equal('38.897668');
                                 expect(wh.longitude().toFixed(6)).to.equal('-77.036545');
                                 expect(wh.confidenceLevel()).to.equal(70);
+                                expect(wh.policeDistrict()).to.equal(2);
+                                expect(wh.psa()).to.equal(207);
                                 done();
                             });
                     }

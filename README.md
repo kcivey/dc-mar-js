@@ -89,6 +89,12 @@ When given an array of strings representing addresses in Washington, DC, returns
 that resolves to an array of arrays of `Address` objects corresponding to those strings, in order.
 Like `findLocation`, it has an optional `raw` argument.
 
+#### reverseLatLngGeocoding(latitude, longitude, raw = false)
+
+When given latitude and longitude as floats, returns a promise that resolves to an array of
+`Address` objects representing the addresses nearest to those coordinates.
+Like `findLocation`, it has an optional `raw` argument.
+
 ### Address
 
 This is the class of the objects returned by `findLocation` and `findLocationBatch`. You probably
@@ -117,7 +123,13 @@ Method to get the advisory neighborhood commission, or ANC (string).
 
 #### confidenceLevel()
 
-Method to get the confidenceLevel (integer).
+Method to get the confidence level of the search result (integer).
+Available only for addresses returned by `findLocation` or `findLocationBatch`. 
+
+#### distance()
+
+Method to get the distance from the provided coordinates (float).
+Available only for addresses returned by `reverseLatLngGeocoding`. 
 
 #### fullAddress()
 
@@ -140,9 +152,17 @@ Method to get the latitude (float).
 
 Method to get the longitude (float).
 
+#### policeDistrict()
+
+Method to get the police district (integer);
+
 #### precinct()
 
 Method to get the voting precinct (integer).
+
+#### psa()
+
+Method to get the police service area (integer);
 
 #### quadrant()
 

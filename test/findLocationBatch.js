@@ -1,14 +1,10 @@
-const nock = require('./nock');
+require('./nock');
 const expect = require('chai').expect;
 const {Client, Address} = require('..');
 const options = {};
 
 if (process.env.NOCK_OFF !== 'true') {
-    nock.disableNetConnect();
     options.minInterval = 0; // for testing, when no real HTTP requests are being made
-}
-else {
-    nock.recorder.rec();
 }
 
 describe(
@@ -39,6 +35,8 @@ describe(
                                 expect(address.imageUrl()).to
                                     .equal('http://citizenatlas.dc.gov/mobilevideo/20040822/QM095023.jpg');
                                 expect(address.confidenceLevel()).to.equal(70);
+                                expect(address.policeDistrict()).to.equal(2);
+                                expect(address.psa()).to.equal(208);
                                 done();
                             });
                     }

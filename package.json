@@ -1,7 +1,7 @@
 {
   "name": "dc-mar",
   "version": "0.1.2",
-  "description": "Node.js module for using the DC Master Address Repository API",
+  "description": "Node module for DC Master Address Repository API",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -11,14 +11,13 @@
     "url": "git+https://github.com/kcivey/dc-mar-js.git"
   },
   "keywords": [
-    "washington",
-    "dc",
+    "washington dc",
     "address",
     "ward",
     "anc",
-    "advisory",
-    "neighborhood",
-    "commission"
+    "precinct",
+    "geocoding",
+    "advisory neighborhood commission"
   ],
   "author": {
     "name": "Keith C. Ivey",

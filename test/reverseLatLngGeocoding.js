@@ -37,7 +37,8 @@ describe(
                                 expect(address.psa()).to.equal(107);
                                 expect(address.distance()).to.equal(4.22);
                                 done();
-                            });
+                            })
+                            .catch(done);
                     }
                 );
             }

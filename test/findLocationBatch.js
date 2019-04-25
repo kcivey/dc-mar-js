@@ -38,7 +38,8 @@ describe(
                                 expect(address.policeDistrict()).to.equal(2);
                                 expect(address.psa()).to.equal(208);
                                 done();
-                            });
+                            })
+                            .catch(done);
                     }
                 );
             }

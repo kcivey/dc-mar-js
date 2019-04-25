@@ -37,7 +37,8 @@ describe(
                                 expect(wh.policeDistrict()).to.equal(2);
                                 expect(wh.psa()).to.equal(207);
                                 done();
-                            });
+                            })
+                            .catch(done);
                     }
                 );
                 it(
@@ -48,7 +49,8 @@ describe(
                             .then(function (addresses) {
                                 expect(addresses).has.length(0);
                                 done();
-                            });
+                            })
+                            .catch(done);
                     }
                 );
                 it(
@@ -59,7 +61,8 @@ describe(
                             .then(function (addresses) {
                                 expect(addresses).has.length(0);
                                 done();
-                            });
+                            })
+                            .catch(done);
                     }
                 );
             }

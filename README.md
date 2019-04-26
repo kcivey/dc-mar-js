@@ -13,8 +13,7 @@ Node.js module for using the [DC Master Address Repository API](https://opendata
 ## Usage example
 
 ```js
-const Client = require('dc-mar').Client;
-const client = new Client();
+const client = require('dc-mar').createClient();
 client.findLocation('1600 Penn')
     .then(function (addresses) {
         const address = addresses[0];
@@ -38,7 +37,8 @@ client.findLocation('1600 Penn')
 
 ### Client
 
-This is the main class you'll want to use.
+This is the main class you'll want to use. If you're creating only one, you may want to use the
+`createClient` function.
 
 #### constructor
 
@@ -94,6 +94,21 @@ Like `findLocation`, it has an optional `raw` argument.
 When given latitude and longitude as floats, returns a promise that resolves to an array of
 `Address` objects representing the addresses nearest to those coordinates.
 Like `findLocation`, it has an optional `raw` argument.
+
+### createClient(options)
+
+A factory function for creating `Client` objects, so that you can do
+
+```js
+const client = require('dc-mar').createClient();
+```
+
+instead of
+
+```js
+const Client = require('dc-mar').Client;
+const client = new Client();
+```
 
 ### Address
 

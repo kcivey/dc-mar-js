@@ -36,6 +36,7 @@ describe(
                                 expect(wh.confidenceLevel()).to.equal(70);
                                 expect(wh.policeDistrict()).to.equal(2);
                                 expect(wh.psa()).to.equal(207);
+                                expect(JSON.parse(JSON.stringify(wh))).to.deep.equal(wh.properties);
                                 done();
                             })
                             .catch(done);

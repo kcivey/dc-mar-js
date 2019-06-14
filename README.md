@@ -114,7 +114,9 @@ const client = new Client();
 
 This is the class of the objects returned by `findLocation` and `findLocationBatch`. You probably
 won't need to use the constructor directly, but it is exported in case it's needed
-(for `instanceof` tests, for example).
+(for `instanceof` tests, for example). When JSON.stringify() is called on an Address object, it
+returns a JSON representation of the `properties` object (which is what was used to create the 
+Address originally).
 
 #### constructor
 

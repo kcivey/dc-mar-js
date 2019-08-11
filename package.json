@@ -37,9 +37,9 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-google": "^0.12.0",
-    "mocha": "^6.1.4",
+    "eslint": "^6.1.0",
+    "eslint-config-google": "^0.13.0",
+    "mocha": "^6.2.0",
     "nock": "^10.0.6"
   }
 }

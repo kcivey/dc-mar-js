@@ -23,6 +23,7 @@ describe(
                                 expect(addresses).has.length(2);
                                 const wh = addresses[0];
                                 expect(wh).is.instanceof(Address);
+                                expect(wh.id()).to.satisfy(Number.isInteger);
                                 expect(wh.quadrant()).to.equal('NW');
                                 expect(wh.ward()).to.equal(2);
                                 expect(wh.anc()).to.equal('2A');
@@ -36,6 +37,7 @@ describe(
                                 expect(wh.confidenceLevel()).to.equal(70);
                                 expect(wh.policeDistrict()).to.equal(2);
                                 expect(wh.psa()).to.equal(207);
+                                expect(wh.alias()).to.be.undefined;
                                 expect(JSON.parse(JSON.stringify(wh))).to.deep.equal(wh.properties);
                                 done();
                             })

@@ -1,3 +1,5 @@
+/* globals describe it */
+
 require('./nock');
 const expect = require('chai').expect;
 const {Client, Address} = require('..');

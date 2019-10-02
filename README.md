@@ -52,7 +52,7 @@ you probably won't want to change from the defaults unless you have unusual need
 * `request`: a function that accepts a URL or options object and returns a promise that
 resolves to an object derived from the JSON in the body of the HTTP response.
 It defaults to the function exported by
-[`request-promise-native`](https://www.npmjs.com/package/request-promise-native`).
+[`request-promise-native`](https://www.npmjs.com/package/request-promise-native).
 
 * `baseUrl`: a string to be used as the base URL for the Master Address Repository API.
 It defaults to `https://citizenatlas.dc.gov/newwebservices/locationverifier.asmx/`.

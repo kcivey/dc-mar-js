@@ -1,6 +1,6 @@
 {
   "name": "dc-mar",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "description": "Node module for DC Master Address Repository API",
   "main": "index.js",
   "scripts": {

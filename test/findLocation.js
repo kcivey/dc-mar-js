@@ -29,7 +29,7 @@ describe(
                                 expect(wh.quadrant()).to.equal('NW');
                                 expect(wh.ward()).to.equal(2);
                                 expect(wh.anc()).to.equal('2A');
-                                expect(wh.smd()).to.equal('2A01');
+                                expect(wh.smd()).to.equal('2A07');
                                 expect(wh.precinct()).to.equal(2);
                                 expect(wh.zip()).to.equal('20500');
                                 expect(wh.fullAddress()).to.equal('1600 PENNSYLVANIA AVENUE NW');

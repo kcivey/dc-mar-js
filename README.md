@@ -49,10 +49,12 @@ const client = new Client(options);
 The optional `options` argument is an object with the following properties, which
 you probably won't want to change from the defaults unless you have unusual needs:
 
-* `request`: a function that accepts a URL or options object and returns a promise that
-resolves to an object derived from the JSON in the body of the HTTP response.
-It defaults to the function exported by
-[`request-promise-native`](https://www.npmjs.com/package/request-promise-native).
+* `request`: a function that accepts a URL or an options object containing `url`
+and `params` (URL parameters) and returns a promise that resolves to an object
+derived from the JSON in the body of the HTTP response. It defaults to the function
+exported by [`request-promise-native`](https://www.npmjs.com/package/axios)
+with a `then` added to extract the `data` property from the response. The function
+should throw on HTTP errors.
 
 * `baseUrl`: a string to be used as the base URL for the Master Address Repository API.
 It defaults to `https://citizenatlas.dc.gov/newwebservices/locationverifier.asmx/`.
